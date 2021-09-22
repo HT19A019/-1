@@ -78,4 +78,10 @@ void main() {
 
 cout << "Success: " << success_count << endl;
 cout << "Division_Miss: " << Division_miss_count << endl;
-cout << "P_MR_Miss: " << P_MR_miss_count << end;
+cout << "P_MR_Miss: " << P_MR_miss_count << endl;
+cout << "EEL_Miss: " << EEL_miss_count << endl;
+
+getchar();
+
+Create_Prime(ZZ &p, ZZ &q){
+
