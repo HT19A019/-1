@@ -76,12 +76,27 @@ void main() {
 		}
 	}
 
-cout << "Success: " << success_count << endl;
-cout << "Division_Miss: " << Division_miss_count << endl;
-cout << "P_MR_Miss: " << P_MR_miss_count << endl;
-cout << "EEL_Miss: " << EEL_miss_count << endl;
+	cout << "Success: " << success_count << endl;
+	cout << "Division_Miss: " << Division_miss_count << endl;
+	cout << "P_MR_Miss: " << P_MR_miss_count << endl;
+	cout << "EEL_Miss: " << EEL_miss_count << endl;
 
-getchar();
+	getchar();
+}
 
-Create_Prime(ZZ &p, ZZ &q){
+void Create_Prime(ZZ &p, ZZ &q) {
+	q = power2_ZZ(7) * rand() / RAND_MAX + power2_ZZ(7);
+	p = (q - 1) / 2;
+}
+
+int Miller_Rabin(ZZ &num) {
+	return ProbPrime(num, 6);
+}
+void Division(ZZ &p, ZZ &q) {
+	for (int i = 0; i < 100; i++){
+		if ((q % Prime[i]) == 0 || (p % Prime[i]) == 0) {
+			miss_count++;
+		}
+}
+}
 
