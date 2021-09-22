@@ -44,37 +44,38 @@ void main() {
 		//Ç±Ç±Ç‹Ç≈Å™
 
 		if (Miller_Rabin(p) == 0) {
+			P_MR_miss_count++;
+			goto Restart;
 		}
-		P_MR_miss_count++;
-		goto Restart;
-	}
 
-	P2 = p % 4;
+		P2 = p % 4;
 
-	if (P2 == 1) {
-		for (ZZ a = (ZZ)0; a < p; a++) {
-			Q2 *= 2;
+		if (P2 == 1) {
+			for (ZZ a = (ZZ)0; a < p; a++) {
+				Q2 *= 2;
+			}
+			if (((Q2 + 1) % q) != 0) {
+				EEL_miss_count++;
+				goto Restart;
+			}
+			success_count++;
 		}
-		if (((Q2 + 1) % q) != 0) {
+		if (P2 == 3) {
+			for (ZZ a = (ZZ)0; a < p; a++) {
+				Q2 *= 2;
+			}
+			if (((Q2 - 1) % q) != 0) {
+				EEL_miss_count++;
+				goto Restart;
+			}
+			success_count++;
+		}
+		else {
 			EEL_miss_count++;
 			goto Restart;
 		}
-		success_count++;
-	}
-	if (P2 == 3) {
-		for (ZZ a = (ZZ)0; a < p; a++) {
-			Q2 *= 2;
-		}
-		if (((Q2 - 1) % q) != 0) {
-			EEL_miss_count++;
-			goto Restart;
-		}
-		success_count++;
-	}
-	else {
-		EEL_miss_count++;
-		goto Restart;
 	}
 
 cout << "Success: " << success_count << endl;
-cout << "Division_Miss:" << Division_miss_count << endl;
+cout << "Division_Miss: " << Division_miss_count << endl;
+cout << "P_MR_Miss: " << P_MR_miss_count << end;
