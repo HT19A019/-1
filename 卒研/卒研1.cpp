@@ -78,4 +78,3 @@ void main() {
 
 cout << "Success: " << success_count << endl;
 cout << "Division_Miss:" << Division_miss_count << endl;
-cout << "EEL_Miss: " << P_MR_miss
